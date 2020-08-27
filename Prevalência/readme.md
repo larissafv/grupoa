@@ -9,4 +9,4 @@ Prevalência calculada para as semanas 9 a 34
 
 ## Gráfico: prevalência por região
 
-![alt text](Prevalência/Prevalencia_CO.svg)
+![alt text](Prevalência/Prevalencia_CO.jpg)
