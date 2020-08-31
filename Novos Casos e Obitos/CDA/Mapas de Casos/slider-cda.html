@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides, .mySlides2 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 750px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgba(0,0,0,0.4);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot, .tipo {
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  margin: 0 2px;
+  padding: 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.tipo-text {
+  top: -6px;
+  position: relative;
+}
+
+.tipo {
+  margin-top:5px;
+}
+
+.active, .dot:hover, .tipo:hover {
+  background-color: #717171;
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_9.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_10.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_11.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_12.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_13.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_14.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_15.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_16.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_17.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_18.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_19.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_20.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_21.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_22.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_23.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_24.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_25.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_26.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_27.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_28.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_29.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="mapa_casos_30.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_9.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_10.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_11.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_12.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_13.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_14.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_15.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_16.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_17.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_18.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_19.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_20.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_21.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_22.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_23.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_24.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_25.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_26.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_27.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_28.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_29.png" style="width:100%">
+  </div>
+
+  <div class="mySlides2 fade">
+    <img src="mapa_mortes_30.png" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)">9</span>
+  <span class="dot" onclick="currentSlide(2)">10</span>
+  <span class="dot" onclick="currentSlide(3)">11</span>
+  <span class="dot" onclick="currentSlide(4)">12</span>
+  <span class="dot" onclick="currentSlide(5)">13</span>
+  <span class="dot" onclick="currentSlide(6)">14</span>
+  <span class="dot" onclick="currentSlide(7)">15</span>
+  <span class="dot" onclick="currentSlide(8)">16</span>
+  <span class="dot" onclick="currentSlide(9)">17</span>
+  <span class="dot" onclick="currentSlide(10)">18</span>
+  <span class="dot" onclick="currentSlide(11)">19</span>
+  <span class="dot" onclick="currentSlide(12)">20</span>
+  <span class="dot" onclick="currentSlide(13)">21</span>
+  <span class="dot" onclick="currentSlide(14)">22</span>
+  <span class="dot" onclick="currentSlide(15)">23</span>
+  <span class="dot" onclick="currentSlide(16)">24</span>
+  <span class="dot" onclick="currentSlide(17)">25</span>
+  <span class="dot" onclick="currentSlide(18)">26</span>
+  <span class="dot" onclick="currentSlide(19)">27</span>
+  <span class="dot" onclick="currentSlide(20)">28</span>
+  <span class="dot" onclick="currentSlide(21)">29</span>
+  <span class="dot" onclick="currentSlide(22)">30</span>
+</div>
+
+<div style="text-align:center">
+  <span class="tipo-text">Casos: </span><span class="tipo" onclick="type(0)"></span> 
+  <span class="tipo-text">Mortes: </span><span class="tipo" onclick="type(1)"></span>
+</div>
+
+<script>
+var slideIndex = 1;
+var tipo = 0;
+showSlides(slideIndex, tipo);
+
+function type(t) {
+  showSlides(slideIndex, tipo=t)
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n, tipo);
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n, tipo);
+}
+
+function showSlides(n, t) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var slides2 = document.getElementsByClassName("mySlides2");
+  var dots = document.getElementsByClassName("dot");
+  var tipos = document.getElementsByClassName("tipo");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < slides2.length; i++) {
+      slides2[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  for (i = 0; i < tipos.length; i++) {
+      tipos[i].className = tipos[i].className.replace(" active", "");
+  }
+  if(t) {
+    slides2[slideIndex-1].style.display = "block";
+  }
+  else {
+    slides[slideIndex-1].style.display = "block";
+  }
+  dots[slideIndex-1].className += " active";
+  tipos[t].className += " active";
+}
+</script>
+
+</body>
+</html> 
