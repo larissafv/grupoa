@@ -1,6 +1,6 @@
 # Prevalência
 
-Prevalência calculada para as semanas 9 a 34
+Prevalência calculada para as semanas 9 a 31
 
 ## Prevalencia.ipynb
 
