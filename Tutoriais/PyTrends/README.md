@@ -2,10 +2,32 @@
 
 PyTrends é uma API em Python usada para automatizar a coleta de dados do Google Trends.
 
-## Importando o PyTrends
+## Interesse em relação ao tempo de termos
 
 ```python
 from pytrends.request import TrendReq
+```
+
+Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+
+```python
+pytrends = TrendReq(hl='pt-BR', tz=3)
+```
+
+Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+
+```python
+kw_list = ["gripe","tosse","coronavirus","corona","dificuldade de respirar"]
+```
+
+Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+
+```python
+pytrends.build_payload(kw_list, cat=0, timeframe='today 5-y', geo='BR')
+```
+Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+```python
+pytrends.interest_over_time()
 ```
 
   - Type some Markdown on the left
