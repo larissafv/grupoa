@@ -1,8 +1,8 @@
 # Tutorial API Pytrends
 
-Esse tutorial tem a finalidade de instruir os leitores quanto a utilização da API Pytrends. A API busca auxiliar na coleta de grandes volumes de dados do Google Trends relacionados ao nosso projeto. 
+Esse tutorial tem a finalidade de instruir os leitores quanto a utilização da API Pytrends. O Pytrends promove uma interface simples que busca auxiliar e automatizar a coleta de grandes volumes de dados do Google Trends. 
 
-Introduzimos então de forma didática as nuances da utilização da plataforma Google Trends e da API Pytrends. 
+Introduzimos então de forma didática as nuances da utilização da plataforma Google Trends e da API Pytrends para o nosso projeto. 
 Esse tutorial tem como base a [documentação da Pseudo API Google Trends](https://pypi.org/project/pytrends/#related-queries).
 
 ### Instalação
