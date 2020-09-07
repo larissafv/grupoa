@@ -5,11 +5,33 @@ Esse tutorial tem a finalidade de instruir os leitores quanto a utilização da 
 Introduzimos então de forma didática as nuances da utilização da plataforma Google Trends e da API Pytrends para o nosso projeto. 
 Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trends](https://pypi.org/project/pytrends/#related-queries).
 
-### Instalação
+### Instalação e Importação
 
-> pip install pytrends
+É necessário instalar a biblioteca pytrends diretamente com o código
+```
+pip install pytrends
+```
+
+Além das bibliotecas Pandas e Requests.
+
+A importação da biblioteca python se faz por
+
+```
+from pytrends.request import TrendReq
+```
 
 ### Se Conectando ao Google
+
+Para nos conectar ao server da Google utilizamos a função
+
+```
+pytrends = TrendReq(hl='pt-br', tz=3)
+```
+
+Parêmetro | Descrição | Definição
+-------- | --------- | ---------
+hl | Refere-se à "host language" de acesso ao Google Trends | Português do Brasil
+tz | Refere-se à "time zone" | UTC-3 fuso horário de Brasília
 
 ### Métodos da API
 
