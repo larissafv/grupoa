@@ -31,9 +31,15 @@ pytrends = TrendReq(hl='pt-br', tz=3)
 Parêmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Portugês do Brasil
-tz | Refere-se à "time zone" | **Deve ser especificado** | UTC-3 como fuso horário de Brasília
+tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
 ### Métodos da API
+
+Antes de utlizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de solicitação de pesquisa.
+
+```
+pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='') #construimos a solicitação de pesquisa 
+```
 
 #### 1. Interesse ao longo do tempo
 
