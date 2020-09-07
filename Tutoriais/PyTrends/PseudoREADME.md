@@ -37,12 +37,22 @@ _Nota: Os limites de taxa definem o número de solicitações que podem ser feit
 
 ### Métodos da API
 
-Antes de utlizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de solicitação de pesquisa.
-É importante
+Antes de utilizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de solicitação de pesquisa.
 
 ```
 pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='') 
 ```
+
+Essa função é análoga à pesquisa direta na plataforma Google Trends.
+
+Parêmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+kw_list | lista de termos para pesquisa | **Deve ser especificado** | Portugês do Brasil
+cat | categoria para limitar resultados| no category | 0
+timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora: 'today #-m' ou data específica '2019-12-01 2020-01-01'
+geo | Define pesquisa para Países e Estados | World | BR, US, BR-MG etc.
+gprop | Propriedade do Google | Web Searches | images, news, youtube..
+
 
 #### 1. Interesse ao longo do tempo
 
