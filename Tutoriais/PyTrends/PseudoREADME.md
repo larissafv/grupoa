@@ -33,12 +33,15 @@ Parêmetro | Descrição | Default Value | Definição
 hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Portugês do Brasil
 tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
+_Nota: Os limites de taxa definem o número de solicitações que podem ser feitas para o Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém se o limite exceder, um tempo de espera (backoff factor) de 1 minuto já permite realizar outras pesquisas. Portanto, essa função complementar não será apresentada aqui._
+
 ### Métodos da API
 
 Antes de utlizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de solicitação de pesquisa.
+É importante
 
 ```
-pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='') #construimos a solicitação de pesquisa 
+pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='') 
 ```
 
 #### 1. Interesse ao longo do tempo
