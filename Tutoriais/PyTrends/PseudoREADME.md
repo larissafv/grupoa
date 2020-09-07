@@ -28,10 +28,10 @@ Para nos conectar ao server da Google utilizamos a função
 pytrends = TrendReq(hl='pt-br', tz=3)
 ```
 
-Parêmetro | Descrição | Definição
--------- | --------- | ---------
-hl | Refere-se à "host language" de acesso ao Google Trends | Português do Brasil
-tz | Refere-se à "time zone" | UTC-3 fuso horário de Brasília
+Parêmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Portugês do Brasil
+tz | Refere-se à "time zone" | **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
 ### Métodos da API
 
