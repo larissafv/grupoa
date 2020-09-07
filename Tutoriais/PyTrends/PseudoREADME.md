@@ -48,11 +48,14 @@ Essa função é análoga à pesquisa direta na plataforma Google Trends.
 Parêmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | Portugês do Brasil
-cat | Categoria para limitar resultados | Sem categoria | 0
+cat | Categoria para limitar resultados | Sem categoria | 
 timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora: 'today #-m' ou data específica '2019-12-01 2020-01-01'
 geo | Define pesquisa para Países e Estados específicos | World | BR, US, BR-MG etc.
 gprop | Propriedade do Google | Web Searches | images, news, youtube..
 
+
+_* Deve especificar os termos de pesquisa, porém existem limitações.
+TERMINAR_
 
 #### 1. Interesse ao longo do tempo
 
