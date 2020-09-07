@@ -3,9 +3,11 @@
 Esse tutorial tem a finalidade de instruir os leitores quanto a utilização da API Pytrends. O Pytrends promove uma interface simples que busca auxiliar e automatizar a coleta de grandes volumes de dados do Google Trends. 
 
 Introduzimos então de forma didática as nuances da utilização da plataforma Google Trends e da API Pytrends para o nosso projeto. 
-Esse tutorial tem como base a [documentação da Pseudo API Google Trends](https://pypi.org/project/pytrends/#related-queries).
+Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trends](https://pypi.org/project/pytrends/#related-queries).
 
 ### Instalação
+
+> pip install pytrends
 
 ### Se Conectando ao Google
 
@@ -14,6 +16,8 @@ Esse tutorial tem como base a [documentação da Pseudo API Google Trends](https
 #### 1. Interesse ao longo do tempo
 
 Retorna dados históricos indexados de quando a palavra-chave foi mais pesquisada, conforme mostrado na seção Interesse ao longo do tempo do Google Trends.
+
+
 
 #### 2. Histórico de interesse por hora
 
