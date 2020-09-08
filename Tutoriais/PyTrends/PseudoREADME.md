@@ -33,7 +33,7 @@ Parêmetro | Descrição | Default Value | Definição
 hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Portugês do Brasil
 tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
-_Nota: Os limites de taxa definem o número de solicitações máximas que podem ser feitas ao Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém se o limite for excedido, um tempo de espera (backoff factor) de 1 minuto entre novas chamadas da API permite realizar outras pesquisas. Portanto, essa função complementar não será apresentada aqui._
+_Nota: Os limites de taxa definem o número de solicitações máximas que podem ser feitas ao Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém, se o limite for excedido, um tempo de espera (backoff factor) de 1 minuto entre novas chamadas da API permite realizar outras pesquisas. Portanto, essa função adicional não será apresentada aqui._
 
 ### Métodos da API
 
@@ -45,7 +45,7 @@ pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='')
 
 Essa função é análoga à pesquisa direta na plataforma Google Trends.
 
-Parêmetro | Descrição | Default Value | Definição 
+Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | -
 cat | Categoria para limitar resultados | Sem categoria | All categories: 0
@@ -81,9 +81,9 @@ Retorna dados históricos, indexados por data e por hora para quando a palavra-c
 pytrends.get_historical_interest(kw_list, year_start=2020, month_start=9, day_start=1, hour_start=0, year_end=2020, month_end=9, day_end=2, hour_end=0, cat=0, geo='BR', gprop='', sleep=0)
 ```
 
-O mpetodo retorna um DataFrame indexado pelas datas e pelo horários referentes e com o valor numérico de interesse de cada termo contido em 'kw_list'.
+O método retorna um DataFrame indexado por data e hora e com o valor numérico de interesse de cada termo contido em 'kw_list'.
 
-Parêmetro | Descrição | Default Value | Definição 
+Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 kw_list | Lista de termos para pesquisa | **Deve ser especificado** | -
 (year/month/day/hour)_start | data e hora do ponto de inicio período de pequisa | **Deve ser especificado** | -
@@ -91,7 +91,7 @@ kw_list | Lista de termos para pesquisa | **Deve ser especificado** | -
 cat | Categoria para limitar resultados | Sem categoria | All categories: 0 | 
 geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
 gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
-sleep | backoff factor - deve ser especificado se for excedido a taxa limite de pesquisas | 0 | segundos: 0 ou 60
+sleep | backoff factor - deve ser especificado se for excedida a taxa limite de pesquisas | 0 | segundos: 0 ou 60
 
 
 #### 3. Interesse por região 
@@ -103,11 +103,11 @@ Retorna os dados de onde a palavra-chave é mais pesquisada, conforme mostrado n
 pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=True)
 ```
 
-O metodo retorna um DataFrame indexado pelos países, estados, ou cidades solicitados referenciandando o valor numéricos do interesse de cada termo.
+O metodo retorna um DataFrame indexado pelos países, estados, ou cidades solicitados referenciandando o valor numérico do interesse de cada termo.
 
-Parêmetro | Descrição | Default Value | Definição 
+Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-resolution | Define o nível da localidade federativa | **Deve ser especificado** | COUNTRY ou CITY ou REGION
+resolution | Define o nível da localidade geográfica | **Deve ser especificado** | COUNTRY ou CITY ou REGION
 inc_low_vol | Inclui região com baixo número de pesquisas | **Deve ser especificado** | True ou False
 inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | **Deve ser especificado** | True ou False
 
@@ -141,9 +141,9 @@ pytrends.trending_searches(pn='brazil')
 
 O método retorna um  DataFrame.
 
-Parêmetro | Descrição | Default Value | Definição 
+Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-pn | Define um país do TopTrends solicitado | **Deve ser especificado** | brazil, united_states, japan
+pn | Define um país para pesquisa | **Deve ser especificado** | brazil, united_states, japan
 
 #### 7. Sugestões
 
@@ -155,4 +155,4 @@ pytrends.suggestions(keyword)
 
 O método retorna um dicionário.
 
-O parâmetro keyword é qualquer string termo a ser pesquisada. Esse termo não precisa ter qualquer relação com a lista de termos espcificada na solicitação de pesquisa. 
+O parâmetro keyword é uma string qualquer. Esse termo não precisa ter qualquer relação com a lista de termos espcificada na solicitação de pesquisa. 
