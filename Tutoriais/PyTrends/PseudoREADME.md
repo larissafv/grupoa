@@ -7,12 +7,12 @@ Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trend
 
 ### Instalação e Importação
 
-É necessário instalar a biblioteca pytrends diretamente com o código
+É necessário instalar a biblioteca pytrends diretamente com o código a seguir. O código deve ser executado no terminal do seu sistema operacional (exemplo: CMD do Windows), ou em uma célula de um arquivo .ipynb (Jupyter Notebook), com um ponto de exclamação no início. 
 ```
 pip install pytrends
 ```
 
-Além das bibliotecas Pandas e Requests.
+Além das bibliotecas Pandas e Requests. São instaladas de maneira análoga, substituindo o termo "pytrends" pelo nome da biblioteca (com todos os caracteres minúsculos).
 
 A importação da biblioteca python se faz por:
 
@@ -30,14 +30,14 @@ pytrends = TrendReq(hl='pt-br', tz=3)
 
 Parêmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Portugês do Brasil
+hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Português do Brasil
 tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
 _Nota: Os limites de taxa definem o número de solicitações máximas que podem ser feitas ao Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém, se o limite for excedido, um tempo de espera (backoff factor) de 1 minuto entre novas chamadas da API permite realizar outras pesquisas. Portanto, essa função adicional não será apresentada aqui._
 
 ### Métodos da API
 
-Antes de utilizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de solicitação de pesquisa.
+Antes de utilizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de **solicitação de pesquisa**.
 
 ```
 pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='') 
