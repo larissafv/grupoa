@@ -48,7 +48,7 @@ Essa função é análoga à pesquisa direta na plataforma Google Trends.
 Parêmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | -
-cat | Categoria para limitar resultados | Sem categoria | 
+cat | Categoria para limitar resultados | Sem categoria | All categories: 0
 timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora ou data específica '2019-12-01 2020-01-01'
 geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
 gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
@@ -61,6 +61,7 @@ _* Deve especificar os termos de pesquisa, porém existem considerações._
    _Em uma pesquisa de termo individual, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse do termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala. Portanto, os resultados numéricos serão diferentes em cada caso._
    
    _Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos observar melhor o comportamento do interesse temporal. Portanto a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento._
+   
 
 #### 1. Interesse ao longo do tempo
 
