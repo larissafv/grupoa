@@ -67,15 +67,37 @@ _* Deve especificar os termos de pesquisa, porém existem considerações._
 
 Retorna dados históricos indexados de quando a palavra-chave foi mais pesquisada, conforme mostrado na seção Interesse ao longo do tempo do Google Trends.
 
+Para retornarmos o interesse ao longo do tempo dos dados recebidos pela função da solicitação de pesquisa, entraremos com a seguinte função:
 
+```
+pytrends.interest_over_time()
+```
+
+O retorno do método é um DataFrame indexado pelas datas e com o valor numérico de interesse de cada palavra contida em 'kw_list'.
 
 #### 2. Histórico de interesse por hora
 
-Retorna dados históricos, indexados e por hora para quando a palavra-chave foi mais pesquisada, conforme mostrado na seção Interesse ao longo do tempo do Google Trends. Ele envia várias solicitações ao Google, cada uma recuperando uma semana de dados por hora. Parece que essa seria a única maneira de obter dados históricos por hora
+Retorna dados históricos, indexados por data e por hora para quando a palavra-chave foi mais pesquisada, conforme mostrado na seção Interesse ao longo do tempo do Google Trends. Ele envia várias solicitações ao Google, cada uma recuperando uma semana de dados por hora. Parece que essa seria a única maneira de obter dados históricos por hora.
+
+
+O interesse histórico por hora pode ser adquirido com a função:
+
+```
+pytrends.get_historical_interest(kw_list, year_start=2020, month_start=9, day_start=1, hour_start=0, year_end=2020, month_end=9, day_end=2, hour_end=0, cat=0, geo='BR', gprop='', sleep=0)
+```
+
 
 #### 3. Interesse por região 
 
 Retorna os dados de onde a palavra-chave é mais pesquisada, conforme mostrado na seção Interesse por região do Google Trends.
+
+Os dados do interesse por região é dado pela função:
+
+```
+pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=True)
+```
+
+É importante notar que a escala de valores numéricos por região segue a mesma lógica escalar de 0 a 100 do interesse ao longo do tempo. Porém são consideradas as pesquisas por termos durante todo o período de tempo especificado pelo parâmetro 'timeframe' na solicitação pesquisa.
 
 #### 4. Tópicos relacionados
 
