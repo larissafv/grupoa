@@ -47,15 +47,18 @@ Essa função é análoga à pesquisa direta na plataforma Google Trends.
 
 Parêmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | Portugês do Brasil
+kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | -
 cat | Categoria para limitar resultados | Sem categoria | 
-timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora: 'today #-m' ou data específica '2019-12-01 2020-01-01'
-geo | Define pesquisa para Países e Estados específicos | World | BR, US, BR-MG etc.
-gprop | Propriedade do Google | Web Searches | images, news, youtube..
+timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora ou data específica '2019-12-01 2020-01-01'
+geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
+gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
 
 
-_* Deve especificar os termos de pesquisa, porém existem limitações.
-TERMINAR_
+_* Deve especificar os termos de pesquisa, porém existem considerações.
+   O Google Trends pode ser usado para a realização de pesquisa de interesse de palavras em conjunto. Porém os resultados não serão apresentados na mesma escala da pesquisa de interesse de palavras individuais. 
+   Em uma pesquisa de termo individual, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse no termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala. Portanto, os resultados numéricos serão diferentes em cada caso. 
+   Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos observar melhor o comportamento do interesse temporal. Portanto a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento.
+_
 
 #### 1. Interesse ao longo do tempo
 
