@@ -33,7 +33,7 @@ Parêmetro | Descrição | Default Value | Definição
 hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Portugês do Brasil
 tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
-_Nota: Os limites de taxa definem o número de solicitações máximas que podem ser feitas ao Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém se o limite for excedido, um tempo de espera (backoff factor) de 1 minuto permite realizar outras pesquisas. Portanto, essa função complementar não será apresentada aqui._
+_Nota: Os limites de taxa definem o número de solicitações máximas que podem ser feitas ao Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém se o limite for excedido, um tempo de espera (backoff factor) de 1 minuto entre novas chamadas da API permite realizar outras pesquisas. Portanto, essa função complementar não será apresentada aqui._
 
 ### Métodos da API
 
@@ -54,9 +54,9 @@ geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG et
 gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
 
 
-_* Devem ser especificadps os termos de pesquisa, porém existem considerações._
+_* Devem ser especificados os termos de pesquisa, porém existem considerações._
 
-   _O Google Trends pode ser usado para a realização de pesquisa de interesse de palavras em conjunto. Porém, os resultados númericos serão diferentes do apresentados na pesquisa de interesse de palavras individuais._ 
+   _O Google Trends pode ser usado para a realização de pesquisa de interesse de palavras em conjunto. Porém, os resultados númericos serão diferentes dos apresentados na pesquisa de interesse de palavras individuais._ 
    
    _Em uma pesquisa de termo único, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse no termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala._
    
@@ -71,7 +71,7 @@ Retorna dados históricos indexados de quando a palavra-chave foi mais pesquisad
 pytrends.interest_over_time()
 ```
 
-O retorno do método é um DataFrame indexado pelas datas e com o valor numérico de interesse de cada termo contida em 'kw_list'.
+O método retorna um DataFrame indexado pelas datas e com o valor numérico de interesse de cada termo contida em 'kw_list'.
 
 #### 2. Histórico de interesse por hora
 
@@ -81,37 +81,46 @@ Retorna dados históricos, indexados por data e por hora para quando a palavra-c
 pytrends.get_historical_interest(kw_list, year_start=2020, month_start=9, day_start=1, hour_start=0, year_end=2020, month_end=9, day_end=2, hour_end=0, cat=0, geo='BR', gprop='', sleep=0)
 ```
 
-O retorno do método é um DataFrame indexado pelas datas e pelo horários referentes e com o valor numérico de interesse de cada termo contido em 'kw_list'.
+O mpetodo retorna um DataFrame indexado pelas datas e pelo horários referentes e com o valor numérico de interesse de cada termo contido em 'kw_list'.
 
 Parêmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 kw_list | Lista de termos para pesquisa | **Deve ser especificado** | -
-(year/month/day/hour)'_'start | data e hora do ponto de inicio período de pequisa |  **Deve ser espcificado** |
-(year/month/day/hour)'_'end | data e hora do ponto de término do período de pesquisa | **Deve ser especificado** |
-cat | Categoria para limitar resultados | Sem categoria | All categories: 0
+(year/month/day/hour)_start | data e hora do ponto de inicio período de pequisa | **Deve ser especificado** | -
+(year/month/day/hour)_end | data e hora do ponto de término do período de pesquisa | **Deve ser especificado** | -
+cat | Categoria para limitar resultados | Sem categoria | All categories: 0 | 
 geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
 gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
-sleep | backoff factor - deve ser especificado se for excedido a taxa limite de pesquisas | 0 | seg: 0 ou 60
+sleep | backoff factor - deve ser especificado se for excedido a taxa limite de pesquisas | 0 | segundos: 0 ou 60
 
 
 #### 3. Interesse por região 
 
 Retorna os dados de onde a palavra-chave é mais pesquisada, conforme mostrado na seção Interesse por região do Google Trends.
 
-Os dados do interesse por região é dado pela função:
 
 ```
 pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=True)
 ```
 
+O metodo retorna um DataFrame indexado pelos países, estados, ou cidades solicitados referenciandando o valor numéricos do interesse de cada termo.
+
+Parêmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+resolution | Define o nível da localidade federativa | **Deve ser especificado** | COUNTRY ou CITY ou REGION
+inc_low_vol | Inclui região com baixo número de pesquisas | **Deve ser especificado** | True ou False
+inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | **Deve ser especificado** | True ou False
+
 
 #### 4. Tópicos relacionados
 
-Retorna dados para as palavras-chave relacionadas a uma palavra-chave fornecida mostrada na seção Tópicos relacionados do Google Trends.
+Retorna dados para as palavras-chave relacionadas a uma palavra-chave fornecida mostrada na seção Assuntos relacionados do Google Trends.
 
 ```
 pytrends.related_topics()
 ```
+
+O método retorna um dicionário de DataFrames.
 
 #### 5. Consultas relacionadas
 
@@ -120,14 +129,21 @@ Retorna dados para as palavras-chave relacionadas a uma palavra-chave fornecida 
 ```
 pytrends.related_queries()
 ```
+O método retorna um dicionário de DataFrames.
 
 #### 6. Tendências de pesquisas
 
-Retorna os dados das últimas tendências de pesquisas mostradas na seção Tendências de pesquisas do Google Trends
+Retorna os dados das últimas tendências em tempo real de pesquisas mostradas na seção Tendências de pesquisas do Google Trends.
 
 ```
 pytrends.trending_searches(pn='brazil')
 ```
+
+O método retorna um  DataFrame.
+
+Parêmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+pn | Define um país do TopTrends solicitado | **Deve ser especificado** | brazil, united_states, japan
 
 #### 7. Sugestões
 
@@ -137,3 +153,6 @@ Retorna uma lista de palavras-chave sugeridas adicionais que podem ser usadas pa
 pytrends.suggestions(keyword)
 ```
 
+O método retorna um dicionário.
+
+O parâmetro keyword é qualquer string termo a ser pesquisada. Esse termo não precisa ter qualquer relação com a lista de termos espcificada na solicitação de pesquisa. 
