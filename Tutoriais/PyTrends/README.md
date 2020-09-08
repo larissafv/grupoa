@@ -1,204 +1,158 @@
-# Tutorial PyTrends
+# Tutorial API Pytrends
 
-PyTrends é uma API em Python usada para automatizar a coleta de dados do Google Trends.
+Esse tutorial tem a finalidade de instruir os leitores quanto a utilização da API Pytrends. O Pytrends promove uma interface simples que busca auxiliar e automatizar a coleta de grandes volumes de dados do Google Trends. 
 
-## Interesse em relação ao tempo de termos
+Introduzimos então de forma didática as nuances da utilização da plataforma Google Trends e da API Pytrends para o nosso projeto. 
+Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trends](https://pypi.org/project/pytrends/#related-queries).
 
-```python
+### Instalação e Importação
+
+É necessário instalar a biblioteca pytrends diretamente com o código a seguir. O código deve ser executado no terminal do seu sistema operacional (exemplo: CMD do Windows), ou em uma célula de um arquivo .ipynb (Jupyter Notebook), com um ponto de exclamação no início. 
+```
+pip install pytrends
+```
+
+Além das bibliotecas Pandas e Requests. São instaladas de maneira análoga, substituindo o termo "pytrends" pelo nome da biblioteca (com todos os caracteres minúsculos).
+
+A importação da biblioteca python se faz por:
+
+```
 from pytrends.request import TrendReq
 ```
 
-Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+### Se Conectando ao Google
 
-```python
-pytrends = TrendReq(hl='pt-BR', tz=3)
+Para nos conectar ao server da Google utilizamos a função
+
+```
+pytrends = TrendReq(hl='pt-br', tz=3)
 ```
 
-Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+Parêmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Português do Brasil
+tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
 
-```python
-kw_list = ["gripe","tosse","coronavirus","corona","dificuldade de respirar"]
+_Nota: Os limites de taxa definem o número de solicitações máximas que podem ser feitas ao Google. É possível exceder essa taxa ao solicitar muitas pesquisas e existe uma função complementar à citada que estabelece conexões de forma automática. Porém, se o limite for excedido, um tempo de espera (backoff factor) de 1 minuto entre novas chamadas da API permite realizar outras pesquisas. Portanto, essa função adicional não será apresentada aqui._
+
+### Métodos da API
+
+Antes de utilizar qualquer um dos métodos da API, precisamos criar o que chamaremos aqui de **solicitação de pesquisa**.
+
+```
+pytrends.build_payload(kw_list, cat=0, timeframe='today 12-m', geo='', gprop='') 
 ```
 
-Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
+Essa função é análoga à pesquisa direta na plataforma Google Trends.
 
-```python
-pytrends.build_payload(kw_list, cat=0, timeframe='today 5-y', geo='BR')
+Parâmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | -
+cat | Categoria para limitar resultados | Sem categoria | All categories: 0
+timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora ou data específica '2019-12-01 2020-01-01'
+geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
+gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
+
+
+_* Devem ser especificados os termos de pesquisa, porém existem considerações._
+
+   _O Google Trends pode ser usado para a realização de pesquisa de interesse de palavras em conjunto. Porém, os resultados númericos serão diferentes dos apresentados na pesquisa de interesse de palavras individuais._ 
+   
+   _Em uma pesquisa de termo único, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse no termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala._
+   
+   _Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos observar melhor o comportamento do interesse temporal. Portanto, a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento._
+   
+
+#### 1. Interesse ao longo do tempo
+
+Retorna dados históricos indexados de quando a palavra-chave foi mais pesquisada, conforme mostrado na seção Interesse ao longo do tempo do Google Trends.
+
 ```
-Na linha seguinte, definimos um objeto da classe TrendReq, com a língua Português do Brazil e a timeline como o de Brasília (UTC -3).
-```python
 pytrends.interest_over_time()
 ```
 
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
+O método retorna um DataFrame indexado pelas datas e com o valor numérico de interesse de cada termo contida em 'kw_list'.
 
+#### 2. Histórico de interesse por hora
 
-  - Import a HTML file and watch it magically convert to Markdown
-  - Drag and drop images (requires your Dropbox account be linked)
+Retorna dados históricos, indexados por data e por hora para quando a palavra-chave foi mais pesquisada, conforme mostrado na seção Interesse ao longo do tempo do Google Trends. Ele envia várias solicitações ao Google, cada uma recuperando uma semana de dados por hora. Parece que essa seria a única maneira de obter dados históricos por hora.
 
-
-You can also:
-  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
-  - Drag and drop markdown and HTML files into Dillinger
-  - Export documents as Markdown, HTML and PDF
-
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
-
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
-
-### Tech
-
-Dillinger uses a number of open source projects to work properly:
-
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [markdown-it] - Markdown parser done right. Fast and easy to extend.
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
-* [jQuery] - duh
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
-### Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
-
-Install the dependencies and devDependencies and start the server.
-
-```sh
-$ cd dillinger
-$ npm install -d
-$ node app
+```
+pytrends.get_historical_interest(kw_list, year_start=2020, month_start=9, day_start=1, hour_start=0, year_end=2020, month_end=9, day_end=2, hour_end=0, cat=0, geo='BR', gprop='', sleep=0)
 ```
 
-For production environments...
+O método retorna um DataFrame indexado por data e hora e com o valor numérico de interesse de cada termo contido em 'kw_list'.
 
-```sh
-$ npm install --production
-$ NODE_ENV=production node app
+Parâmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+kw_list | Lista de termos para pesquisa | **Deve ser especificado** | -
+(year/month/day/hour)_start | data e hora do ponto de inicio período de pequisa | **Deve ser especificado** | -
+(year/month/day/hour)_end | data e hora do ponto de término do período de pesquisa | **Deve ser especificado** | -
+cat | Categoria para limitar resultados | Sem categoria | All categories: 0 | 
+geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
+gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
+sleep | backoff factor - deve ser especificado se for excedida a taxa limite de pesquisas | 0 | segundos: 0 ou 60
+
+
+#### 3. Interesse por região 
+
+Retorna os dados de onde a palavra-chave é mais pesquisada, conforme mostrado na seção Interesse por região do Google Trends.
+
+
+```
+pytrends.interest_by_region(resolution='COUNTRY', inc_low_vol=True, inc_geo_code=True)
 ```
 
-### Plugins
+O metodo retorna um DataFrame indexado pelos países, estados, ou cidades solicitados referenciandando o valor numérico do interesse de cada termo.
 
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+Parâmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+resolution | Define o nível da localidade geográfica | **Deve ser especificado** | COUNTRY ou CITY ou REGION
+inc_low_vol | Inclui região com baixo número de pesquisas | **Deve ser especificado** | True ou False
+inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | **Deve ser especificado** | True ou False
 
 
-### Development
+#### 4. Tópicos relacionados
 
-Want to contribute? Great!
+Retorna dados para as palavras-chave relacionadas a uma palavra-chave fornecida mostrada na seção Assuntos relacionados do Google Trends.
 
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-```sh
-$ node app
+```
+pytrends.related_topics()
 ```
 
-Second Tab:
-```sh
-$ gulp watch
+O método retorna um dicionário de DataFrames.
+
+#### 5. Consultas relacionadas
+
+Retorna dados para as palavras-chave relacionadas a uma palavra-chave fornecida mostrada na seção Consultas relacionadas do Google Trends.
+
+```
+pytrends.related_queries()
+```
+O método retorna um dicionário de DataFrames.
+
+#### 6. Tendências de pesquisas
+
+Retorna os dados das últimas tendências em tempo real de pesquisas mostradas na seção Tendências de pesquisas do Google Trends.
+
+```
+pytrends.trending_searches(pn='brazil')
 ```
 
-(optional) Third:
-```sh
-$ karma test
-```
-#### Building for source
-For production release:
-```sh
-$ gulp build --prod
-```
-Generating pre-built zip archives for distribution:
-```sh
-$ gulp build dist --prod
-```
-### Docker
-Dillinger is very easy to install and deploy in a Docker container.
+O método retorna um  DataFrame.
 
-By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+Parâmetro | Descrição | Default Value | Definição 
+:-------: | :-------: | :-------: | :-------:
+pn | Define um país para pesquisa | **Deve ser especificado** | brazil, united_states, japan
 
-```sh
-cd dillinger
-docker build -t joemccann/dillinger:${package.json.version} .
+#### 7. Sugestões
+
+Retorna uma lista de palavras-chave sugeridas adicionais que podem ser usadas para refinar uma pesquisa de tendência. 
+
 ```
-This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out `${package.json.version}` with the actual version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 --restart="always" <youruser>/dillinger:${package.json.version}
+pytrends.suggestions(keyword)
 ```
 
-Verify the deployment by navigating to your server address in your preferred browser.
+O método retorna um dicionário.
 
-```sh
-127.0.0.1:8000
-```
-
-#### Kubernetes + Google Cloud
-
-See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
-
-
-### Todos
-
- - Write MORE Tests
- - Add Night Mode
-
-License
-----
-
-MIT
-
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+O parâmetro keyword é uma string qualquer. Esse termo não precisa ter qualquer relação com a lista de termos espcificada na solicitação de pesquisa. 
