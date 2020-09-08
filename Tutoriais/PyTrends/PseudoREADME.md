@@ -54,11 +54,13 @@ geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG et
 gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
 
 
-_* Deve especificar os termos de pesquisa, porém existem considerações.
-   O Google Trends pode ser usado para a realização de pesquisa de interesse de palavras em conjunto. Porém os resultados não serão apresentados na mesma escala da pesquisa de interesse de palavras individuais. 
-   Em uma pesquisa de termo individual, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse no termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala. Portanto, os resultados numéricos serão diferentes em cada caso. 
-   Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos observar melhor o comportamento do interesse temporal. Portanto a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento.
-_
+_* Deve especificar os termos de pesquisa, porém existem considerações._
+
+   _O Google Trends pode ser usado para a realização de pesquisa de interesse de palavras em conjunto. Porém os resultados não serão apresentados na mesma escala da pesquisa de interesse de palavras individuais._ 
+   
+   _Em uma pesquisa de termo individual, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse do termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala. Portanto, os resultados numéricos serão diferentes em cada caso._
+   
+   _Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos observar melhor o comportamento do interesse temporal. Portanto a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento._
 
 #### 1. Interesse ao longo do tempo
 
