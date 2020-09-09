@@ -63,7 +63,7 @@ import sqlite3
 
 con = sqlite3.connect("resultados/indicadores.db")  
 
-nome_tabela = pd.read_sql('select * from cities_df', con)
+novo_dataframe = pd.read_sql('select * from cities_df', con)
 ```
 
 
