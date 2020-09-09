@@ -10,8 +10,9 @@ Nesse momento, vale ponderar que diversos dados podem ser inconsistentes com a r
 Como a maioria das visualizações a serem produzidas vão trabalhar com semanas epidemiológias, os dados atribuídos a cada semana são do último dia. Após serem reorganizadas e acrescidas de colunas contendo os novos indicadores, as bases de dados são exportadas para o arquivo **indicadores.db**.
 ## Visualização
 As visualizações são projetadas utilizando a biblioteca MatPlotLib, também em um caderno Jupyter disponível nesse repositório, com base nos dados já tratados. Foram projetados gráficos e mapas que distinguem a evolução da pandemia no país conforme cada região ao longo do tempo.
-
-    incluir imagens
-Com base nos gráficos acima, é possível abstrair tendências e deduzir motivos para, por exemplo: um maior índice de letalidade na macrorregião Norte em contraste com a baixa incidência da região; os elevados números de casos acumulados nas regiões Nordeste e Sudeste; a maior taxa de óbitos no Sudeste com relação ao Nordeste, enquanto ambas apresentam índices semelhantes de casos acumulados.
+![novos_casos](https://user-images.githubusercontent.com/58361234/92538919-640d0a80-f216-11ea-9fb9-70508a728745.png)
+![incidencia](https://user-images.githubusercontent.com/58361234/92538921-64a5a100-f216-11ea-8d4a-d17d9c983db5.png)
+![letalidade](https://user-images.githubusercontent.com/58361234/92538918-63747400-f216-11ea-940f-911e9e7925fc.png)
+Com base nos gráficos obtidos, é possível abstrair tendências e deduzir motivos para, por exemplo: um maior índice de letalidade na macrorregião Norte em contraste com a baixa incidência da região; os elevados números de casos acumulados nas regiões Nordeste e Sudeste; a maior taxa de óbitos no Sudeste com relação ao Nordeste, enquanto ambas apresentam índices semelhantes de casos acumulados. Os demais gráficos gerados estão na pasta "Gráficos", subpasta de "Visualização dos Indicadores".
 
 Todas essas análises podem levar a conclusões relevantes que ajudam a entender a pandemia enquanto um problema de relevância nacional. A compreensão de fenômenos como a interiorização da doença, por exemplo, é fundamental para agir estrategicamente na contenção da pandemia.
