@@ -1,7 +1,9 @@
 # Tratamento de dados
 
 ## Resumo
-O arquivo de tratamento de dados foi feito utilizando o Jupyter Notebook para o Python 3.8.2 64-bit e a biblioteca Pandas. Os dados tratados foram dois arquivos, o caso_full e pop2020, ambos salvos em csv. O primeiro arquivo é um banco de dados, do site “https://brasil.io/”, contendo os dados relativos aos casos e às mortes relacionados à COVID-19, separados por cidades e estados brasileiros. O segundo arquivo, pop2020, informa a população atual de todas as cidades brasileiras e foi cedido pela professora …………. O objetivo do presente Notebook foi filtrar os dados desses arquivos pelos itens de interesse para calcular os indicadores descritos abaixo. Foi utilizado um período semanal, coincidindo com as semanas epidemiológicas, e os cálculos foram feitos para os níveis municipal, estadual, regional e nacional. 
+O arquivo de tratamento de dados foi feito utilizando o Jupyter Notebook para o Python 3.8.2 64-bit e a biblioteca Pandas. Os dados tratados foram dois arquivos, o caso_full e pop2020, ambos salvos em csv. O primeiro arquivo é um banco de dados, do site “https://brasil.io/”, contendo os dados relativos aos casos e às mortes relacionados à COVID-19, separados por cidades e estados brasileiros. O segundo arquivo, pop2020, informa a população atual de todas as cidades brasileiras e foi cedido pela professora …………. 
+O objetivo desse Notebook foi filtrar os dados desses arquivos pelos itens de interesse para calcular os indicadores descritos abaixo. Para isso foi utilizado um período semanal, coincidindo com as semanas epidemiológicas, e os cálculos foram feitos para os níveis municipal, estadual, regional e nacional.
+Para que o notebook execute as análises é preciso que os arquivos caso_full.csv e pop2020.csv estejam contidos na pasta "case_csv".
 
 ## Indicadores
 Os indicadores foram estabelecidos pelos mentores do projeto e são eles:
