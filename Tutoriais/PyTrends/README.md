@@ -3,7 +3,7 @@
 Esse tutorial tem a finalidade de instruir os leitores quanto a utilização da API Pytrends. O Pytrends promove uma interface simples que busca auxiliar e automatizar a coleta de grandes volumes de dados do Google Trends. 
 
 Introduzimos então de forma didática as nuances da utilização da plataforma Google Trends e da API Pytrends para o nosso projeto. 
-Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trends](https://pypi.org/project/pytrends/#related-queries).
+Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trends](https://pypi.org/project/pytrends/).
 
 ### Instalação e Importação
 
@@ -12,7 +12,7 @@ Esse tutorial tem como base a documentação da [Pseudo API para o  Google Trend
 pip install pytrends
 ```
 
-Além das bibliotecas Pandas e Requests. São instaladas de maneira análoga, substituindo o termo "pytrends" pelo nome da biblioteca (com todos os caracteres minúsculos).
+Para evitar erros, indicamos instalar também as bibliotecas Pandas e Requests. Estas são instaladas de maneira análoga, substituindo o termo "pytrends" pelo nome da biblioteca (com todos os caracteres minúsculos).
 
 A importação da biblioteca python se faz por:
 
@@ -22,13 +22,13 @@ from pytrends.request import TrendReq
 
 ### Se Conectando ao Google
 
-Para nos conectar ao server da Google utilizamos a função
+Para nos conectar ao server da Google utilizamos a função:
 
 ```
 pytrends = TrendReq(hl='pt-br', tz=3)
 ```
 
-Parêmetro | Descrição | Default Value | Definição 
+Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
 hl | Refere-se à "host language" de acesso ao Google Trends | **Deve ser especificado** | Português do Brasil
 tz | Refere-se à "time zone" de acesso| **Deve ser especificado** | UTC-3 como fuso horário de Brasília
@@ -107,9 +107,9 @@ O metodo retorna um DataFrame indexado pelos países, estados, ou cidades solici
 
 Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-resolution | Define o nível da localidade geográfica | **Deve ser especificado** | COUNTRY ou CITY ou REGION
-inc_low_vol | Inclui região com baixo número de pesquisas | **Deve ser especificado** | True ou False
-inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | **Deve ser especificado** | True ou False
+resolution | Define o nível da localidade geográfica | COUNTRY | COUNTRY ou CITY ou REGION
+inc_low_vol | Inclui região com baixo número de pesquisas | False | True ou False
+inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | False | True ou False
 
 
 #### 4. Tópicos relacionados
