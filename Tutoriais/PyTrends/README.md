@@ -47,7 +47,7 @@ Essa função é análoga à pesquisa direta na plataforma Google Trends.
 
 Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | -
+kw_list* | Lista de termos para pesquisa | **Deve ser especificado** | list com no máximo 5 termos
 cat | Categoria para limitar resultados | Sem categoria | All categories: 0
 timeframe | Período de pesquisa | Last 5 years (today 5-y) | Por Mês, Dia ou Hora ou data específica '2019-12-01 2020-01-01'
 geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
@@ -60,7 +60,7 @@ _* Devem ser especificados os termos de pesquisa, porém existem considerações
    
    _Em uma pesquisa de termo único, os resultados se encontram numa escala de 0 a 100 sendo que 0 corresponde ao período de menos interesse e 100 corresponde a período de mais interesse no termo, dentro do intervalo de tempo especificado. Ao realizar uma pesquisa conjunta de termos, a escala se altera. O termo de menor interesse no período de menor procura tomará o valor de 0 e o termo de maior interesse no período de maior procura tomará o valor de 100 na escala._
    
-   _Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos observar melhor o comportamento do interesse temporal. Portanto, a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento._
+   _Avaliamos preferencialmente os termos individuais pelo fato de que assim, podemos acompanhar melhor o comportamento de buscas de usuários na Web. Portanto, a lista do parâmetro 'kw_list' deve conter preferencialmente apenas um elemento._
    
 
 #### 1. Interesse ao longo do tempo
@@ -85,13 +85,13 @@ O método retorna um DataFrame indexado por data e hora e com o valor numérico 
 
 Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-kw_list | Lista de termos para pesquisa | **Deve ser especificado** | -
+kw_list | Lista de termos para pesquisa | **Deve ser especificado** | list com no máximo 5 termos
 (year/month/day/hour)_start | data e hora do ponto de inicio período de pequisa | **Deve ser especificado** | -
 (year/month/day/hour)_end | data e hora do ponto de término do período de pesquisa | **Deve ser especificado** | -
-cat | Categoria para limitar resultados | Sem categoria | All categories: 0 | 
-geo | Define pesquisa para Países e Estados específicos | World | BR, BR-MG etc.
-gprop | Propriedade do Google | Web Searches | images, news, youtube etc.
-sleep | backoff factor - deve ser especificado se for excedida a taxa limite de pesquisas | 0 | segundos: 0 ou 60
+cat | Categoria para limitar resultados | Sem categoria | All categories: '0' 
+geo | Define pesquisa para Países e Estados específicos | 'World' | 'BR', 'BR-MG' etc.
+gprop | Propriedade do Google | 'Web Searches' | 'images', 'news', 'youtube' etc.
+sleep | backoff factor - deve ser especificado se for excedida a taxa limite de pesquisas | '0' | segundos: '0' ou '60'
 
 
 #### 3. Interesse por região 
@@ -107,9 +107,9 @@ O metodo retorna um DataFrame indexado pelos países, estados, ou cidades solici
 
 Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-resolution | Define o nível da localidade geográfica | COUNTRY | COUNTRY ou CITY ou REGION
-inc_low_vol | Inclui região com baixo número de pesquisas | False | True ou False
-inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | False | True ou False
+resolution | Define o nível da localidade geográfica | COUNTRY | 'COUNTRY' ou 'CITY' ou 'REGION'
+inc_low_vol | Inclui região com baixo número de pesquisas | 'False' | 'True' ou 'False'
+inc_geo_code | Inclui os códigos de referência geográfica usados pela Google | 'False' | 'True' ou 'False'
 
 
 #### 4. Tópicos relacionados
@@ -143,7 +143,7 @@ O método retorna um  DataFrame.
 
 Parâmetro | Descrição | Default Value | Definição 
 :-------: | :-------: | :-------: | :-------:
-pn | Define um país para pesquisa | **Deve ser especificado** | brazil, united_states, japan
+pn | Define um país para pesquisa | **Deve ser especificado** | 'brazil', 'united_states', 'japan'...
 
 #### 7. Sugestões
 
