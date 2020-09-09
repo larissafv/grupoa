@@ -47,7 +47,7 @@ Os indicadores foram estabelecidos pelos mentores do projeto e são eles:
 
 O arquivo caso_full possui diversos dados sobre a situação das cidades e dos estados e até mesmo alguns indicadores já calculados, apesar de estarem um uma base diária e não semanal como a de interesse do estudo. Buscando uma maior precisão dos cálculos e para adequá-los às necessidades do projeto ficou decidido que seria aproveitado do arquivo apenas os dados referentes aos casos e óbitos acumulados, a identificação dos locais por meio do código IBGE para cidades e estados, o nome da localidade, a semana epidemiológica e a data do registro. Esses dados são suficientes para o cálculo de todos os indicadores desejados.
 
-Foram seguidos os seguintes passos para chegar aos indicadores:
+**Foram seguidos os seguintes passos para chegar aos indicadores:**
 
     1. Leitura dos dois arquivos mencionados como DataFrames (DF) do Pandas.
     2. Correção dos nomes das colunas para que ambos tenham a coluna do código IBGE com o mesmo cabeçalho, que será utilizado para juntar os dois DF, e para padronizar os nomes.
