@@ -5,27 +5,38 @@ O arquivo de tratamento de dados foi feito utilizando o Jupyter Notebook para o 
 
 ## Indicadores
 Os indicadores foram estabelecidos pelos mentores do projeto e são eles:
-    • Casos acumulados:
+  
+  • Casos acumulados:
       Soma dos casos.
-    • Óbitos acumulados:
+      
+  • Óbitos acumulados:
       Soma dos óbitos.
-    • Prevalência:
+  
+  • Prevalência:
       Número de casos acumulados por 100 mil habitantes.
-    • Mortalidade:
+  
+  • Mortalidade:
       Número de óbitos acumulados por 100 mil habitantes.
-    • Letalidade:
+  
+  • Letalidade:
       Número de óbitos acumulados dividido por número de casos acumulados.
-    • Novos casos:
+  
+  • Novos casos:
       Número de novos casos em uma determinada semana epidemiológica.
-    • Novos óbitos:
+  
+  • Novos óbitos:
       Número de novos óbitos em uma determinada semana epidemiológica.
-    • Incidência de casos:
+  
+  • Incidência de casos:
       Número de novos casos por 100 mil habitantes.
-    • Incidência de óbitos:
+  
+  • Incidência de óbitos:
       Número de novos casos por 100 mil habitantes.
-    • Fator de crescimento dos casos:
+  
+  • Fator de crescimento dos casos:
       Número de novos casos em um período dividido pelo número do período anterior. 
-    • Fator de crescimento dos óbitos:
+  
+  • Fator de crescimento dos óbitos:
       Número de novos óbitos em um período dividido pelo número do período anterior. 
 
 ## Metodologia de tratamento
